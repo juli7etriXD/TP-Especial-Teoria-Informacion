@@ -4,14 +4,38 @@ public class SimulacionMarkov {
     private static final int N_MIN = 10000;
 
     public static void main(String[] args) {
+        //Matriz de transicion PS1: uso diario durante periodo de cursada regular
         double[][] PS1 = {
             {0.56, 0.13, 0.00}, // Fila L
             {0.38, 0.56, 0.30}, // Fila M
             {0.06, 0.31, 0.70}  // Fila H
         };
+
+        // Matriz de transicion PS2: uso diario durante epoca de exámenes
+        double[][] PS2 = {
+            {0.81, 0.61, 0.32}, // Fila L
+            {0.19, 0.32, 0.47}, // Fila M
+            {0.00, 0.07, 0.21}  // Fila H
+        };
+
+        // Matriz de transicion PS3: uso diario durante periodo de vacaciones
+        double[][] PS3 = {
+            {0.10, 0.05, 0.00}, // Fila L
+            {0.90, 0.68, 0.11}, // Fila M
+            {0.00, 0.27, 0.89}  // Fila H
+        };
+
         System.out.println("\n---------------------------------");
         System.out.println("Analizando Fuente S1 (Cursada Regular)...");
         calcularMetricas(PS1);
+
+        System.out.println("\n---------------------------------");
+        System.out.println("Analizando Fuente S2 (Epoca de Examenes)...");
+        calcularMetricas(PS2);
+        
+        System.out.println("\n---------------------------------");
+        System.out.println("Analizando Fuente S3 (Vacaciones)...");
+        calcularMetricas(PS3);
     }
 
     public static void calcularMetricas(double[][] matrizTransicion) {
